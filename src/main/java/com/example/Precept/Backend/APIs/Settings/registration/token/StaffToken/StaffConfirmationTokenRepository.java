@@ -1,0 +1,24 @@
+package com.example.Precept.Backend.APIs.Settings.registration.token.StaffToken;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+
+@Repository
+public interface StaffConfirmationTokenRepository extends JpaRepository<StaffConfirmationToken, Long> {
+
+    Optional<StaffConfirmationToken> findByToken(String token);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE StaffConfirmationToken c " +
+            "SET c.confirmedAt = ?2 " +
+            "WHERE c.token = ?1")
+    int updateConfirmedAt(String token,
+                          LocalDateTime confirmedAt);
+}

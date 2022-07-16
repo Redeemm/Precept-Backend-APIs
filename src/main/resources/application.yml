@@ -1,0 +1,36 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    password: 022037689281f1b515cee55d414b050c6a476b73a3325d53a57702fd277a3660
+    url: jdbc:postgresql://ec2-44-198-82-71.compute-1.amazonaws.com:5432/ddae8rengp4mnr
+    username: thfxknieexaouh
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: Precept-Financial@gmail.com
+    password: hndodwzmrzhplfjl
+
+    properties:
+      mail:
+        smpt:
+          auth: true
+          starttls:
+            enable: true
+
+twilio:
+  account_sid: ACb676708f3635d0a9dafbcb393114d0df
+  auth_token: ef30ca7c4d92ceb283ac4931c35a03ce
+  trial_number: +13254252962
